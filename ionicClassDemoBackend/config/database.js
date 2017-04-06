@@ -10,7 +10,7 @@ function getConnectionString(connection_string) {
       process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
       process.env.OPENSHIFT_APP_NAME;
   }
-  connection_string = "mongodb://cph-cs241:cjs192@ds017514.mlab.com:17514/cjs_db";
+  // connection_string = "mongodb://cph-cs241:cjs192@ds017514.mlab.com:17514/cjs_db";
   return connection_string;
 }
 var connection;

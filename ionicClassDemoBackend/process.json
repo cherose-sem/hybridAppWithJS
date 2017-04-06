@@ -1,12 +1,12 @@
 {
 "apps" : [{
 "name" : "ionicBackend" ,
-"script" : "app.js" ,
+"script" : "./bin/www",
 "watch" : true ,
 "env" : {
 "NODE_ENV" : "development" ,
 "IP" : "0.0.0.0" ,
-"PORT" : 3000
+"PORT" : 80
 }
 }]
 }
