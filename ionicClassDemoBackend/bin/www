@@ -12,9 +12,11 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.OPENSHIFT_NODEJS_PORT || '3000');
+var port = normalizePort(process.env.PORT || '3000');
+// var port = normalizePort(process.env.OPENSHIFT_NODEJS_PORT || '3000');
 app.set('port', port);
-var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+// var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var ip = process.env.IP || "localhost";
 app.set('ip', ip);
 
 /**
@@ -29,7 +31,9 @@ var server = http.createServer(app);
 
 
 var db = require("../config/database");
-var connection_string = "mongodb://localhost/ionicbackend";
+// var connection_string = "mongodb://localhost/ionicbackend";
+var connection_string = "mongodb://cph-cs241:cjs192@ds017514.mlab.com:17514/cjs_db";
+
 db.connect(connection_string,function(err){
   if(err){
     console.log("Could not connect to Database");
