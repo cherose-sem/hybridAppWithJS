@@ -1,7 +1,7 @@
 {
 "apps" : [{
 "name" : "ionicBackend" ,
-"script" : "../routes/index.js" ,
+"script" : "app.js" ,
 "watch" : true ,
 "env" : {
 "NODE_ENV" : "development" ,
