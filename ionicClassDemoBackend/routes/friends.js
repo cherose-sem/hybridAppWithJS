@@ -3,12 +3,19 @@ var router = express.Router();
 var connection = require("../config/database");
 var cors = require("cors");
 
-router.all("/", cors(), function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header['Access-Control-Allow-Methods'] = 'GET,HEAD,PUT,PATCH,POST,DELETE'
-  res.header['Access-Control-Allow-Headers'] = ' Content-Type, Accept';
-  next();
-})
+router.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token');
+     // intercept OPTIONS method
+    if ('OPTIONS' == req.method) {
+      res.send(200);
+    }
+    else {
+      next();
+    }
+});
+
 
 router.post('/register/:distance', function (req, res) {
     var db = connection.get();
